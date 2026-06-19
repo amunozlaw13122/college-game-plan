@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#14223a">
-<title>Aileen Muñoz — Recruiting & Application Guide</title>
+<title>Aileen Muñoz · Recruiting & Application Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -255,6 +255,7 @@
   .sys-CSU { color: var(--good); }
   .sys-Private { color: var(--gold); }
   .sys-IVY { color: var(--accent); }
+  .sys-CC { color: #2a7d8c; }
   .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: .82rem; }
   .row label {
     color: var(--ink-soft); font-size: .62rem; font-family: var(--disp);
@@ -266,6 +267,7 @@
   .pill.amber { background: var(--warn-bg); color: var(--warn); }
   .pill.green { background: var(--good-bg); color: var(--good); }
   .pill.gray { background: #ece6d8; color: var(--ink-soft); }
+  .pill.blue { background: #e3eef6; color: #2a6f97; }
   .pill.tier { cursor: pointer; user-select: none; }
   .pill.tier .set { font-size: .62rem; opacity: .7; }
   select, input[type="date"], input[type="text"] {
@@ -275,6 +277,13 @@
   select:focus, input:focus { outline: 2px solid rgba(27,58,91,.30); }
   .tests { font-family: var(--disp); font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
   .verify { font-size: .62rem; color: var(--warn); font-family: var(--disp); text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+  .mgr-note { font-size: .7rem; color: var(--ink-soft); font-style: italic; margin-top: 2px; }
+  .toolright { display: flex; align-items: center; gap: 8px; }
+  .toolright .sortlab { font-family: var(--disp); text-transform: uppercase; font-size: .6rem; letter-spacing: .12em; font-weight: 700; color: var(--ink-soft); }
+  #sort { font-size: .76rem; padding: 6px 8px; }
+  .callout { background: #fbf3e7; border: 1px solid var(--gold); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; font-size: .9rem; line-height: 1.55; color: var(--ink-2); }
+  .callout .ct { display: block; font-family: var(--disp); text-transform: uppercase; letter-spacing: .08em; font-size: .68rem; font-weight: 800; color: var(--accent); margin-bottom: 6px; }
+  .callout b { color: var(--ink); font-weight: 600; }
   details.box { border-top: 1px solid var(--line-2); padding-top: 9px; }
   details.box summary {
     cursor: pointer; font-size: .68rem; color: var(--ink-soft); font-weight: 700;
@@ -353,6 +362,9 @@
 </style>
 </head>
 <body>
+<!-- CHANGELOG v6 (2026-06-19): volleyball layer added (additive, schema v5->v6, backward-tolerant migration).
+     Per-school Play likelihood + Coaching fit; Community College/JUCO category + filter; "most likely to play" sort;
+     new section 04 "The coaching lane" + transfer-engine callout; game-plan step 4. The rulebook unchanged. -->
 
 <header class="site">
   <div class="wrap">
@@ -375,11 +387,11 @@
         </label>
         <label class="stat">
           <span class="lab">SAT</span>
-          <input id="p-sat" placeholder="—" inputmode="numeric">
+          <input id="p-sat" placeholder="opt." inputmode="numeric">
         </label>
         <label class="stat">
           <span class="lab">ACT</span>
-          <input id="p-act" placeholder="—" inputmode="numeric">
+          <input id="p-act" placeholder="opt." inputmode="numeric">
         </label>
       </div>
       <div class="who-wrap">
@@ -448,7 +460,40 @@
   </section>
 
   <section>
-    <div class="shead"><span class="no">04</span><h2>The lineup</h2><span class="count" id="school-count"></span></div>
+    <div class="shead"><span class="no">04</span><h2>The coaching lane</h2><span class="count">where her real goal lives</span></div>
+    <div class="callout">
+      <span class="ct">The transfer engine</span>
+      <b>2 years at a community college</b>: play right away, start coaching, and earn an <b>ADT</b> (Associate Degree for Transfer). Then transfer up: <b>guaranteed</b> into the CSU system on the ADT, and into most UCs via <b>TAG</b>. Finish with a <b>kinesiology or sport-management degree</b> and a college program to coach in. Highest-percentage route to the real goal.
+    </div>
+    <details class="rulebox">
+      <summary>The reframe <span class="tag">height closes one door, not the building</span></summary>
+      <ul>
+        <li><b>What height affects:</b> being <i>recruited to play</i> libero at the D1 level (UCs, big CSUs, Ivies), where rosters skew ~5'6"+. At ~4'11", that one door is realistically closed.</li>
+        <li><b>What it doesn't touch:</b> playing at JUCO, D3 (SCIAC), and NAIA, where skill beats inches, and <b>coaching</b>, which doesn't care about height at all.</li>
+        <li><b>The point:</b> the goal was always coaching. Playing is how she stays in the gym and learns the game, not the prize.</li>
+      </ul>
+    </details>
+    <details class="rulebox">
+      <summary>The ladder <span class="tag">how a coaching career actually starts</span></summary>
+      <ul>
+        <li><b>Student manager:</b> get on a college staff as an undergrad; learn film, drills, logistics.</li>
+        <li><b>Director of volleyball operations:</b> run the behind-the-scenes program.</li>
+        <li><b>Student / graduate assistant:</b> first real coaching reps while finishing a degree.</li>
+        <li><b>Assistant coach:</b> the first paid rung. Every program has these roles whether or not she ever played there.</li>
+      </ul>
+    </details>
+    <details class="rulebox">
+      <summary>Credential builders <span class="tag">start these now, not later</span></summary>
+      <ul>
+        <li><b>USA Volleyball coaching certification</b> (IMPACT / CAP): the entry credential, doable young.</li>
+        <li><b>Coaching reps:</b> camps, clinics, club, and younger / youth teams. Hours on a whistle are the resume.</li>
+        <li><b>The degree:</b> kinesiology or sport management aligns the classroom with the career. Strongest at the big CSUs (e.g., Long Beach State, Fresno State).</li>
+      </ul>
+    </details>
+  </section>
+
+  <section>
+    <div class="shead"><span class="no">05</span><h2>The lineup</h2><span class="count" id="school-count"></span></div>
     <div class="hint">Tap a name or date to edit it. Deadlines marked "verify" were prefilled from the typical cycle, so double-check them on the school's website.</div>
     <div class="toolrow">
       <div class="filters" id="filters">
@@ -458,14 +503,22 @@
         <button data-f="P-CA">CA Private</button>
         <button data-f="P-OOS">Out-of-state</button>
         <button data-f="Ivy">Ivy</button>
+        <button data-f="CC">Community College</button>
       </div>
-      <button class="btn" id="add-school">+ Add school</button>
+      <div class="toolright">
+        <span class="sortlab">Sort</span>
+        <select id="sort">
+          <option value="deadline">By deadline</option>
+          <option value="play">Most likely to play</option>
+        </select>
+        <button class="btn" id="add-school">+ Add school</button>
+      </div>
     </div>
     <div class="cards" id="cards"></div>
   </section>
 
   <section>
-    <div class="shead"><span class="no">05</span><h2>Essay rally</h2><span class="count" id="essay-count"></span></div>
+    <div class="shead"><span class="no">06</span><h2>Essay rally</h2><span class="count" id="essay-count"></span></div>
     <div class="hint">UC essays (PIQs) are shared by every UC campus: pick 4 of the 8 prompts, 350 words each. CSU has no essays. The Common App personal statement covers most private colleges, plus each school's supplements (tracked on the school cards).</div>
     <div class="essay-list" id="essays"></div>
     <div class="addline">
@@ -475,7 +528,7 @@
   </section>
 
   <section>
-    <div class="shead"><span class="no">06</span><h2>Drills &amp; milestones</h2><span class="count" id="task-count"></span></div>
+    <div class="shead"><span class="no">07</span><h2>Drills &amp; milestones</h2><span class="count" id="task-count"></span></div>
     <div class="task-list" id="tasks"></div>
     <div class="addline">
       <input id="new-task" placeholder="Add a to-do">
@@ -485,7 +538,7 @@
   </section>
 
   <section>
-    <div class="shead"><span class="no">07</span><h2>The huddle</h2><span class="count">notes between us</span></div>
+    <div class="shead"><span class="no">08</span><h2>The huddle</h2><span class="count">notes between us</span></div>
     <div class="hint">Leave each other notes here. Pick who you are at the top right first.</div>
     <div class="board-card">
       <ul class="note-list" id="board"></ul>
@@ -497,7 +550,7 @@
   </section>
 
   <section>
-    <div class="shead"><span class="no">08</span><h2>How we use this</h2></div>
+    <div class="shead"><span class="no">09</span><h2>How we use this</h2></div>
     <div class="hint" style="margin:0;">
       Everything saves automatically in this browser on this device. To share progress:
       use <b>Copy update</b> below and paste it into a text, or <b>Export</b> the data file and send it,
@@ -527,6 +580,19 @@ const RECRUIT_STATUSES = ["No recruiting", "Researching program", "Emailed coach
 const CLOSED = ["Submitted", "Accepted", "Waitlisted", "Denied", "Committed"];
 const SUBMITTED = ["Submitted", "Accepted", "Committed"];
 const FADE = ["Submitted", "Accepted", "Denied", "Committed"];
+
+/* volleyball layer (v6) */
+const PLAY_STATUSES = ["Strong", "Realistic", "Long shot", "Off the table"];
+const COACH_STATUSES = ["High", "Medium", "Indirect"];
+const PLAY_FROM_DIV = { CC: "Strong", D3: "Realistic", NAIA: "Realistic", D2: "Long shot", D1: "Off the table" };
+const PLAY_RANK = { "Strong": 0, "Realistic": 1, "Long shot": 2, "Off the table": 3, "": 4 };
+const DIVISION = {
+  "UCLA": "D1", "UC Irvine": "D1", "UC Santa Barbara": "D1", "UC Riverside": "D1",
+  "Cal State Long Beach": "D1", "Cal State Fullerton": "D1", "Cal Poly Pomona": "D2",
+  "USC": "D1", "Loyola Marymount (LMU)": "D1", "Chapman University": "D3",
+  "Harvard": "D1", "Columbia": "D1", "Yale": "D1", "Princeton": "D1",
+  "UPenn": "D1", "Brown": "D1", "Dartmouth": "D1", "Cornell": "D1"
+};
 
 /* school crest registry: name -> [monogram, fill, accent] */
 const CREST = {
@@ -563,23 +629,42 @@ function autoMark(name) {
   return m || "?";
 }
 
+function coachDefault(s) {
+  if (s.system === "CSU") return "High";
+  if (s.ivy) return "Indirect";
+  return "Medium";
+}
+
+function normalizeSchool(s) {
+  if (!s) return s;
+  if (s.division == null) s.division = DIVISION[s.name] || (s.system === "CC" ? "CC" : "");
+  if (s.play == null) s.play = PLAY_FROM_DIV[s.division] || "";
+  if (s.coach == null) s.coach = coachDefault(s);
+  return s;
+}
+
 function seed() {
   const sup = (t) => ({ id: uid(), title: t, status: "Not started" });
   const school = (name, system, plan, deadline, verify, tests, rate, gpa, supps, ivy) => {
     const cr = CREST[name];
-    return {
+    const division = DIVISION[name] || (system === "CC" ? "CC" : "");
+    const s = {
       id: uid(), name: name, system: system, plan: plan, deadline: deadline,
       status: "Not started", recruiting: "No recruiting", verify: verify,
       tests: tests, stats: { rate: rate, gpa: gpa }, ivy: !!ivy, tier: "Auto",
       region: system === "Private" ? (ivy ? "OOS" : "CA") : "",
+      division: division, play: PLAY_FROM_DIV[division] || "",
       mark: cr ? cr[0] : autoMark(name), colors: cr ? [cr[1], cr[2]] : ["#14223a", "#b0822c"],
       supplements: (supps || []).map(sup), notes: []
     };
+    s.coach = coachDefault(s);
+    return s;
   };
   return {
-    v: 5,
+    v: 6,
     profile: { gpa: "", sat: "", act: "" },
     filter: "All",
+    sort: "deadline",
     schools: [
       school("UCLA", "UC", "UC filing window", "2026-11-30", false, "test-free", 9, 3.9, []),
       school("UC Irvine", "UC", "UC filing window", "2026-11-30", false, "test-free", 26, 3.8, []),
@@ -598,7 +683,10 @@ function seed() {
       school("UPenn", "Private", "RD (ED Nov 1 is binding)", "2027-01-05", true, "required", 6, 3.95, ["Penn supplement"], true),
       school("Brown", "Private", "RD (ED Nov 1 is binding)", "2027-01-03", true, "required", 5, 3.95, ["Brown supplement"], true),
       school("Dartmouth", "Private", "RD (ED Nov 1 is binding)", "2027-01-02", true, "required", 5, 3.95, ["Dartmouth supplement"], true),
-      school("Cornell", "Private", "RD (ED Nov 1 is binding)", "2027-01-02", true, "required", 8, 3.9, ["Cornell school-specific essay"], true)
+      school("Cornell", "Private", "RD (ED Nov 1 is binding)", "2027-01-02", true, "required", 8, 3.9, ["Cornell school-specific essay"], true),
+      school("Mt. San Antonio College", "CC", "2-yr ADT, then transfer up", "", true, "", 100, 2.0, []),
+      school("Long Beach City College", "CC", "2-yr ADT, then transfer up", "", true, "", 100, 2.0, []),
+      school("Rio Hondo College", "CC", "2-yr ADT, then transfer up", "", true, "", 100, 2.0, [])
     ],
     essays: [
       { id: uid(), title: "Common App personal statement (privates)", status: "Drafting" },
@@ -633,7 +721,7 @@ try {
 if (!state.schools) state = seed();
 
 (function migrate() {
-  if (state.v >= 5) return;
+  if (state.v >= 6) return;
   const fresh = seed();
   const norm = (v) => {
     if (v == null) return v;
@@ -647,6 +735,9 @@ if (!state.schools) state = seed();
       if (ss.ivy) ex.ivy = true;
       if (!ex.tier) ex.tier = "Auto";
       ex.mark = ss.mark; ex.colors = ss.colors;
+      ex.division = ss.division;
+      if (ex.play == null) ex.play = ss.play;
+      if (ex.coach == null) ex.coach = ss.coach;
     } else {
       state.schools.push(ss);
     }
@@ -658,12 +749,14 @@ if (!state.schools) state = seed();
     if (!s.region) s.region = s.system === "Private" ? (s.ivy ? "OOS" : "CA") : "";
     if (!s.mark) s.mark = autoMark(s.name);
     if (!s.colors) s.colors = ["#14223a", "#b0822c"];
+    normalizeSchool(s);
     s.status = norm(s.status);
     (s.supplements || []).forEach(p => { p.status = norm(p.status); });
   });
   (state.essays || []).forEach(e => { e.status = norm(e.status); });
   if (state.filter === "Private") state.filter = "All";
-  state.v = 5;
+  if (state.sort == null) state.sort = "deadline";
+  state.v = 6;
   localStorage.setItem(KEY, JSON.stringify(state));
 })();
 
@@ -751,6 +844,25 @@ function testsLabel(s) {
   return '<span class="tests" style="color:' + m[1] + ';">' + m[0] + "</span>";
 }
 
+function playPill(s) {
+  const map = { "Strong": "green", "Realistic": "blue", "Long shot": "amber", "Off the table": "gray" };
+  const cls = map[s.play];
+  if (!cls) return "";
+  const title = s.play === "Off the table" ? ' title="As a recruited D1 player. The coaching lane stays open."' : "";
+  return '<span class="pill ' + cls + '"' + title + ">" + esc(s.play) + "</span>";
+}
+
+function coachLabel(s) {
+  const map = { "High": "var(--good)", "Medium": "var(--warn)", "Indirect": "var(--ink-soft)" };
+  const c = map[s.coach];
+  if (!c) return "";
+  return '<span class="tests" style="color:' + c + ';">coach: ' + esc(s.coach) + "</span>";
+}
+
+function playSelectOptions(current) {
+  return '<option value=""' + (!current ? " selected" : "") + ">set odds</option>" + options(PLAY_STATUSES, current);
+}
+
 function options(list, current) {
   return list.map(s => '<option' + (s === current ? " selected" : "") + ">" + esc(s) + "</option>").join("");
 }
@@ -775,6 +887,7 @@ function renderPlan() {
     ? "<b>Test scores in.</b> Send them to every school that wants them."
     : "<b>Register for the SAT:</b> Aug 22 sitting (register by Aug 7), backup Sep 12 (by Aug 28). UC and CSU never see scores, but 6 of 8 Ivies require them this cycle. Columbia and Princeton are test-optional for the last time.") + "</span></div>";
   html += '<div class="plan-step"><span class="n">3</span><span><b>Build a balanced list:</b> 2-3 safeties, 3-4 matches, 2-3 reaches. Reaches are the dream, matches are home, safeties are guarantees. Every Ivy is a reach for everyone. She should still swing.</span></div>';
+  html += '<div class="plan-step"><span class="n">4</span><span><b>Two games, not one:</b> getting <b>in</b> (above), and what she <b>does</b> there. At ~4&#39;11" she can realistically play libero at JUCO, D3, or NAIA, and it is a long shot at D2, but the real goal is <b>coaching</b> and that door is open at every program. See The coaching lane.</span></div>';
   html += "</div>";
 
   const groups = { Reach: [], Match: [], Safety: [], unrated: [] };
@@ -846,6 +959,8 @@ function renderSchools() {
   const f = state.filter || "All";
   document.querySelectorAll("#filters button").forEach(b =>
     b.classList.toggle("active", b.dataset.f === f));
+  const sortEl = document.getElementById("sort");
+  if (sortEl) sortEl.value = state.sort || "deadline";
   const list = state.schools
     .filter(s => {
       if (f === "All") return true;
@@ -855,7 +970,14 @@ function renderSchools() {
       return s.system === f;
     })
     .slice()
-    .sort((a, b) => (a.deadline || "9999") < (b.deadline || "9999") ? -1 : 1);
+    .sort((a, b) => {
+      if ((state.sort || "deadline") === "play") {
+        const ra = PLAY_RANK[a.play] != null ? PLAY_RANK[a.play] : 4;
+        const rb = PLAY_RANK[b.play] != null ? PLAY_RANK[b.play] : 4;
+        if (ra !== rb) return ra - rb;
+      }
+      return (a.deadline || "9999") < (b.deadline || "9999") ? -1 : 1;
+    });
 
   document.getElementById("school-count").textContent =
     state.schools.length + " schools · " +
@@ -869,7 +991,7 @@ function renderSchools() {
   el.innerHTML = list.map(s => {
     const days = daysUntil(s.deadline);
     const doneCls = FADE.indexOf(s.status) !== -1 ? " done" : "";
-    const badge = s.ivy ? "IVY" : (s.system === "Private" ? (s.region === "OOS" ? "OOS PRIV" : "CA PRIV") : esc(s.system));
+    const badge = s.ivy ? "IVY" : (s.system === "CC" ? "JUCO" : (s.system === "Private" ? (s.region === "OOS" ? "OOS PRIV" : "CA PRIV") : esc(s.system)));
     const badgeCls = s.ivy ? "sys-IVY" : "sys-" + esc(s.system);
     const suppRows = s.supplements.map(p =>
       '<li><span class="stitle">' + esc(p.title) + '</span>' +
@@ -881,7 +1003,7 @@ function renderSchools() {
         crest(s) +
         '<div class="card-id">' +
           '<input class="name" data-act="name" value="' + esc(s.name) + '">' +
-          '<div class="card-meta"><span class="sysbadge ' + badgeCls + '">' + badge + "</span>" + tierPill(s) + "</div>" +
+          '<div class="card-meta"><span class="sysbadge ' + badgeCls + '">' + badge + "</span>" + tierPill(s) + playPill(s) + "</div>" +
         "</div>" +
         '<button class="xbtn" data-act="school-del" title="Remove school">&times;</button>' +
       "</div>" +
@@ -894,6 +1016,9 @@ function renderSchools() {
       '<div class="row"><label>Plan</label><input type="text" data-act="plan" value="' + esc(s.plan || "") + '" style="flex:1;min-width:120px;"></div>' +
       '<div class="row"><label>App</label><select data-act="status">' + options(APP_STATUSES, s.status) + "</select>" +
       '<label>Recruit</label><select data-act="recruiting">' + options(RECRUIT_STATUSES, s.recruiting) + "</select></div>" +
+      '<div class="row"><label>Play</label><select data-act="play">' + playSelectOptions(s.play) + "</select>" +
+      '<label>Coach</label><select data-act="coach">' + options(COACH_STATUSES, s.coach) + "</select>" + coachLabel(s) + "</div>" +
+      (s.system !== "CC" ? '<div class="mgr-note">Student-manager / ops entry point exists here whether or not she plays.</div>' : "") +
       '<details class="box"><summary>Supplemental essays (' + s.supplements.length + ")</summary>" +
         '<ul class="supp-list">' + (suppRows || '<li class="empty">None tracked. UC and CSU need none here.</li>') + "</ul>" +
         '<div class="addline"><input data-role="new-supp" placeholder="Add supplement"><button class="btn small" data-act="supp-add">Add</button></div>' +
@@ -995,26 +1120,33 @@ document.getElementById("filters").addEventListener("click", e => {
   save(); renderSchools();
 });
 
+document.getElementById("sort").addEventListener("change", e => {
+  state.sort = e.target.value;
+  save(); renderSchools();
+});
+
 document.getElementById("add-school").addEventListener("click", () => {
   const name = prompt("School name?");
   if (!name) return;
-  let system = (prompt("Type: UC, CSU, or Private?", "Private") || "Private").trim();
-  if (["UC", "CSU", "Private"].indexOf(system) === -1) {
-    const u = system.toUpperCase();
-    system = u === "UC" ? "UC" : (u === "CSU" ? "CSU" : "Private");
-  }
+  let system = (prompt("Type: UC, CSU, Private, or CC (community college)?", "Private") || "Private").trim();
+  const u = system.toUpperCase();
+  system = u === "UC" ? "UC" : u === "CSU" ? "CSU"
+    : (u === "CC" || u === "JUCO" || u.indexOf("COMM") === 0) ? "CC"
+    : "Private";
   let region = "";
   if (system === "Private") {
     region = confirm("Is " + name.trim() + " in California? OK = yes, Cancel = out of state") ? "CA" : "OOS";
   }
   const cr = CREST[name.trim()];
-  state.schools.push({
+  const ns = {
     id: uid(), name: name.trim(), system: system, plan: "", deadline: "",
     status: "Not started", recruiting: "No recruiting", verify: false,
     tier: "Auto", region: region,
     mark: cr ? cr[0] : autoMark(name.trim()), colors: cr ? [cr[1], cr[2]] : ["#14223a", "#b0822c"],
     supplements: [], notes: []
-  });
+  };
+  normalizeSchool(ns);
+  state.schools.push(ns);
   save(); renderSchools(); renderBigDates(); renderPlan();
 });
 
@@ -1029,6 +1161,8 @@ document.getElementById("cards").addEventListener("change", e => {
   else if (act === "plan") { s.plan = e.target.value; }
   else if (act === "status") { s.status = e.target.value; }
   else if (act === "recruiting") { s.recruiting = e.target.value; }
+  else if (act === "play") { s.play = e.target.value; }
+  else if (act === "coach") { s.coach = e.target.value; }
   else if (act === "supp-status") {
     const p = s.supplements.find(p => p.id === e.target.dataset.pid);
     if (p) p.status = e.target.value;
@@ -1157,6 +1291,10 @@ document.getElementById("copy-update").addEventListener("click", () => {
   const submitted = state.schools.filter(s => SUBMITTED.indexOf(s.status) !== -1);
   lines.push("Apps submitted: " + submitted.length + " of " + state.schools.length +
     (submitted.length ? " (" + submitted.map(s => s.name).join(", ") + ")" : ""));
+  const canPlay = state.schools.filter(s => ["Strong", "Realistic"].indexOf(s.play) !== -1).map(s => s.name);
+  if (canPlay.length) lines.push("Can realistically play: " + canPlay.join(", "));
+  const topCoach = state.schools.filter(s => s.coach === "High").map(s => s.name);
+  if (topCoach.length) lines.push("Strongest coaching fit: " + topCoach.join(", "));
   const openTasks = state.tasks.filter(t => !t.done && t.due && daysUntil(t.due) != null && daysUntil(t.due) <= 30 && daysUntil(t.due) >= 0);
   if (openTasks.length) {
     lines.push("");
@@ -1200,6 +1338,8 @@ document.getElementById("import-file").addEventListener("change", e => {
     try {
       const data = JSON.parse(r.result);
       if (!data.schools || !data.essays) throw new Error("bad file");
+      data.schools.forEach(normalizeSchool);
+      if (data.sort == null) data.sort = "deadline";
       state = data;
       save(); renderAll();
       toast("Imported, you are up to date");
